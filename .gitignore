@@ -3,3 +3,4 @@
 .settings/stm32cubeide.project.prefs
 .settings/stm32cubeide.project.prefs
 Software_OSCAR_P01A01 Debug.launch
+*.launch
