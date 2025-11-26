@@ -421,6 +421,7 @@ void HardwareAndCoInitialize() {
     if (HAL_OK != StartAudio(&hsai_BlockA1, &hsai_BlockB1)) {
         Error_Handler();
     }
+
 }
 
 // =============================================================================
@@ -465,8 +466,9 @@ ITCM void AudioCallback(AudioBuffer *pIn, AudioBuffer *pOut) {
         }
 
         // Process audio through GUI and effect chain
-        __GUI.GUIProcess(pIn);
+        __GUI.GUIProcessIn(pIn);
         __Effect.Process(pIn, pOut, __MemOnOff);
+        __GUI.GUIProcessOut(pOut);
 
         // Advance buffer pointers
         pOut++;
