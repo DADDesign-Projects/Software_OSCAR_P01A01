@@ -91,7 +91,7 @@ Ressources files must be written to the **external QSPI Flash memory** using the
 (https://github.com/DADDesign-Projects/OSCAR_P01_FlasherClient)
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the Apache 2.0 License (https://opensource.org/licenses/Apache-2.0).
 
 ## 🔗 Related Projects
 - OSCAR_P01A01: https://github.com/DADDesign-Projects/OSCAR_P01A01
