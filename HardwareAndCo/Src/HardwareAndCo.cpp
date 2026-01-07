@@ -282,7 +282,7 @@ void HardwareAndCoInitialize() {
     __Monitor.Init();
 #endif
 
-    // Initialize persistent storage and check if initialization is needed
+	// Initialize persistent storage and check if initialization is needed
     bool NeedInitBlockStorage = __BlockStorageManager.Init(EFFECT_BUILD);
 
     // Initialize display
@@ -459,15 +459,15 @@ ITCM void AudioCallback(AudioBuffer *pIn, AudioBuffer *pOut) {
 
     // Process audio buffer samples
     for (size_t i = 0; i < AUDIO_BUFFER_SIZE; i++) {
-
+    	bool Silence = ((fabs(pIn->Right) + fabs(pIn->Left)) < 0.001f);
         // Apply state change only when input is near silence to avoid clicks
-        if ((__OnOffCmd != __MemOnOff) && (fabs(pIn->Right + pIn->Left) < 0.001f)) {
+        if ((__OnOffCmd != __MemOnOff) && Silence) {
             __MemOnOff = __OnOffCmd;
         }
 
         // Process audio through GUI and effect chain
         __GUI.GUIProcessIn(pIn);
-        __Effect.Process(pIn, pOut, __MemOnOff);
+        __Effect.Process(pIn, pOut, __MemOnOff, Silence);
         __GUI.GUIProcessOut(pOut);
 
         // Advance buffer pointers
