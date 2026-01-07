@@ -93,7 +93,7 @@ LoopCopyITCMInit:
   cmp r4, r1
   bcc CopyITCMInit
 #ifndef	USE_RAM
-/* Copy TEXT segment from flash to ITCM RAM */
+/* Copy TEXT segment from flash to D1 RAM */
   ldr r0, =__sTEXT
   ldr r1, =__eTEXT
   ldr r2, =__lTEXT
