@@ -73,8 +73,6 @@ SECTIONS
     *(.glue_7)         /* glue arm to thumb code */
     *(.glue_7t)        /* glue thumb to arm code */
     *(.eh_frame)
-    *(.RamFunc)        /* .RamFunc sections */
-    *(.RamFunc*)       /* .RamFunc* sections */
 
     KEEP (*(.init))
     KEEP (*(.fini))
@@ -147,17 +145,14 @@ SECTIONS
   {
       . = ALIGN(4);
     __sITCM = .;
+
     *(.moveITCM)
-    *DAD_STM_GFX2/Src/*.o (.text)
-    *DAD_STM_GFX2/Src/*.o (.text*)
 
     . = ALIGN(4);
     __eITCM = .;
   } >ITCMRAM AT> RAM_EXEC
 
 /* ======================================================================== */ 
-
-
   /* Uninitialized data section */
   . = ALIGN(4);
   .bss :
