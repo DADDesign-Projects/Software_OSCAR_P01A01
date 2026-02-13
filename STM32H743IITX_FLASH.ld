@@ -215,6 +215,13 @@ SECTIONS
     KEEP (*(.SDRAM_Section))
     . = ALIGN(4);
   } >SDRAM
+
+.RAM_D1_Section (NOLOAD):
+  {
+    . = ALIGN(4);
+    KEEP (*(.RAM_D1_Section))
+    . = ALIGN(4);
+  } >RAM_D1
   
 /* END DADD Sections ========================================================== */ 
 
