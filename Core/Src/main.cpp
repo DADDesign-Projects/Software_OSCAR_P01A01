@@ -90,8 +90,7 @@ static void MX_RNG_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-int main(void)
-{
+int main(void){
 
   /* USER CODE BEGIN 1 */
 // =====** DAD **=================================================================
@@ -109,6 +108,11 @@ SCB->VTOR = 0x24000000;
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+  // *** LA LIGNE MAGIQUE ***
+  // Modifie le registre FPSCR (Floating Point Status and Control Register)
+  // Bit 24 (FZ) : Flush-to-zero mode enable
+  // Bit 25 (DN) : Default NaN mode enable
+  __set_FPSCR(__get_FPSCR() | (1<<24) | (1<<25));
 
   /* USER CODE END Init */
 
