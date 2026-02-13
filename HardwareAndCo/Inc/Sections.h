@@ -25,6 +25,10 @@
 #define NO_CACHE_RAM __attribute__((section(".RAM_NO_CACHE_Section")))
 
 // Instruction TCM (Tightly Coupled Memory) for fast code execution
-#define ITCM __attribute__((section(".moveITCM")))
+// (Provisional?) halt of ITCM memory mapping for critical sections due to unresolved malfunctions
+//#define ITCM __attribute__((section(".moveITCM")))
+
+
+#define RAM_D1 __attribute__((section(".RAM_D1_Section")))
 
 //***End of file**************************************************************
