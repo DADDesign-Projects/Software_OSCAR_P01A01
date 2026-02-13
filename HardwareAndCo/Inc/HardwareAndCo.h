@@ -21,12 +21,13 @@
 // General defines
 //**********************************************************************************
 #define GUI_UPDATE_MS      300     // GUI update interval in milliseconds
+#define GUI_FAST_UPDATE_MS 10      // GUI fast process update interval in milliseconds
 #define MIDI_UPDATE_MS     100     // MIDI update interval in milliseconds
 #define MONITOR_UPDATE_MS  200     // Monitor update interval in milliseconds
 #define GENERAL_UPDATE_MS  100     // General system update interval in milliseconds
-constexpr float MIN_DRY = -40.0f;  // Minimum dry signal level cDryWet
-constexpr float MAX_DRY  = 0.0f;     // Maximum dry signal level cDryWet
-constexpr float FAD_TIME = 1.5f;   // Dry/Wet Fading time in second
+constexpr float MIN_DRY = -45.0f;  // Minimum dry signal level cDryWet
+constexpr float MAX_DRY  = 0.0f;   // Maximum dry signal level cDryWet
+constexpr float FAD_TIME = 5.0f;   // Dry/Wet Fading time in second
 
 //**********************************************************************************
 // External functions
@@ -75,6 +76,7 @@ extern DadGFX::cDisplay __Display;  // Main display instance
 
 // Real-time refresh rate derived from audio parameters, filters, etc.
 constexpr float RT_RATE = SAMPLING_RATE / (float)AUDIO_BUFFER_SIZE;
+constexpr float RT_TIME = (float)AUDIO_BUFFER_SIZE / SAMPLING_RATE;
 
 //**********************************************************************************
 // System states
@@ -85,9 +87,9 @@ enum eOnOff {
     On           // System on state with audio processing
 };
 
-extern eOnOff   __MemOnOff;  // Current audio processing state
-extern eOnOff   __OnOffCmd;  // Target state (requested by user)
-extern uint32_t __CT;        // Cycle counter for LED activity feedback
+volatile extern eOnOff   __MemOnOff;  // Current audio processing state
+volatile extern eOnOff   __OnOffCmd;  // Target state (requested by user)
+volatile extern uint32_t __CT;        // Cycle counter for LED activity feedback
 
 //**********************************************************************************
 // System monitor (conditional compilation)
@@ -117,6 +119,14 @@ extern DadDrivers::cEncoder __Encoder3;  // Third rotary encoder
 extern DadDrivers::cEncoder __Encoder0;  // Fourth rotary encoder
 
 //**********************************************************************************
+// GUI system
+//**********************************************************************************
+#include "GUI_Event.h"
+extern DadGUI::GUI_EventManager __GUI_EventManager;
+#include "MainGUI.h"
+extern DadGUI::cMainGUI __GUI;  // Main graphical user interface
+
+//**********************************************************************************
 // SoftSPI and Dry/Wet (PGA2310 PGA2311 PGA2320)
 //**********************************************************************************
 #include "cSoftSPI.h"
@@ -139,10 +149,6 @@ void OnControlChange(uint8_t channel, uint8_t control, uint8_t value);   // Cont
 void OnProgramChange(uint8_t channel, uint8_t program);                  // Program change handler
 }
 
-//**********************************************************************************
-// GUI system
-//**********************************************************************************
-#include "MainGUI.h"
-extern DadGUI::cMainGUI __GUI;  // Main graphical user interface
+
 
 //***End of file**************************************************************
