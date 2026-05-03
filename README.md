@@ -88,7 +88,7 @@ USB Device-specific code, including a **custom callback in `usbd_cdc_if.c`** for
 ### Ressources/
 Project visual assets: **bitmaps, fonts, images** for the display.
 Ressources files must be written to the **external QSPI Flash memory** using the flasher utility:
-(https://github.com/DADDesign-Projects/OSCAR_P01_FlasherClient)
+(https://github.com/DADDesign-Projects/OSCAR_P01_FlasherLoader)
 
 ## 📄 License
 This project is licensed under the Apache 2.0 License (https://opensource.org/licenses/Apache-2.0).
@@ -96,9 +96,9 @@ This project is licensed under the Apache 2.0 License (https://opensource.org/li
 ## 🔗 Related Projects
 - OSCAR_P01A01: https://github.com/DADDesign-Projects/OSCAR_P01A01
 - DAD_FORGE: https://github.com/DADDesign-Projects/DAD_FORGE
-- OSCAR_P01_FlasherClient: https://github.com/DADDesign-Projects/OSCAR_P01_FlasherClient
+- OSCAR_P01_FlasherClient: https://github.com/DADDesign-Projects/OSCAR_P01_FlasherLoader
 - TrueType-to-Bitmap-Converter: https://github.com/DADDesign-Projects/TrueType-to-Bitmap-Converter
-- Daisy_QSPI_Flasher_Server: https://github.com/DADDesign-Projects/Daisy_QSPI_Flasher_Server
+- Daisy_QSPI_Flasher_Server: https://github.com/DADDesign-Projects/OSCAR_Flasher_Server
   
 ## 📬 Contact
 Feel free to contact me for any questions, feedback, improvement suggestions, or collaboration proposals related to the FORGE framework or the OSCAR hardware platform. I am always open to discussion and community contributions (daddesign.projects@gmail.com).
