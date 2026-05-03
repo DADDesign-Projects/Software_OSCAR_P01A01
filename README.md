@@ -27,7 +27,7 @@ The project is built using **STM32CubeIDE** from STMicroelectronics:\
 git clone --recurse-submodules https://github.com/DADDesign-Projects/Software_OSCAR_P01A01
 ```
 Load the files from the Resource directory into the external flash drive. Use the QSPI Flasher utility:
-https://github.com/DADDesign-Projects/OSCAR_P01_FlasherClient
+https://github.com/DADDesign-Projects/OSCAR_P01_FlasherLoader
 
 2. Open in STM32CubeIDE
 Start STM32CubeIDE  
