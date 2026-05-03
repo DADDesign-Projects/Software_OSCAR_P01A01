@@ -28,7 +28,13 @@ constexpr uint32_t FLASHER_MEM_SIZE = 16 * 1024 * 1024;   // 16 MB total size
 //**********************************************************************************
 
 // Block Storage Manager region (upper 8 MB of flash)
-constexpr uint32_t BLOCK_STORAGE_ADDRESS  = FLASH_ADDRESS + (8 * 1024 * 1024);  // Offset 8 MB
-constexpr uint32_t BLOCK_STORAGE_MEM_SIZE = 8 * 1024 * 1024;                    // 8 MB storage region
+constexpr uint32_t BLOCK_STORAGE_ADDRESS  = FLASH_ADDRESS + FLASHER_MEM_SIZE;   // After Flasher Storage
+constexpr uint32_t BLOCK_STORAGE_MEM_SIZE = QFLAH_SECTOR_SIZE * 1024;           // 1024 blocs = 8 M
+
+//**********************************************************************************
+// Loader storage zone
+//**********************************************************************************
+constexpr uint32_t LOADER_STORAGE_ADDRESS  = BLOCK_STORAGE_ADDRESS + BLOCK_STORAGE_MEM_SIZE;  // After Bloc Storage
+constexpr uint32_t LOADER_MEM_SIZE  = QFLAH_SECTOR_SIZE;  									  // One sector
 
 //***End of file**************************************************************

@@ -38,8 +38,11 @@ DadDrivers::cW25Q128 __Flash;
 
 // Persistent storage instances
 QFLASH_FLASHER  DadPersistentStorage::cFlasherStorage __FlasherStorage;
-QFLASH_TABSAVE  DadPersistentStorage::sSaveBlock      __TabSaveBlock[BLOCK_STORAGE_MEM_SIZE/QFLAH_SECTOR_SIZE];
+QFLASH_TABSAVE  uint8_t      						  __TabSaveBlock[BLOCK_STORAGE_MEM_SIZE];
 DadPersistentStorage::cBlockStorageManager            __BlockStorageManager(__TabSaveBlock);
+// -------------------------------------------------------------------
+// Persistent Target — reserved in QFLASH_LOADER flash section
+QFLASH_LOADER uint8_t __LoaderInfo[QFLAH_SECTOR_SIZE];
 
 // Display instance
 DECLARE_DISPLAY(__Display);
