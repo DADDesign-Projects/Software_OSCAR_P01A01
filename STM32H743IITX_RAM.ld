@@ -196,6 +196,8 @@ SECTIONS
 
     KEEP(*(.QFLASH_TabSaveBlock))
     
+    KEEP(*(.QFLASH_LoaderInfo))
+    
     KEEP(*(.QFLASH_Section))
     
     . = ALIGN(4);

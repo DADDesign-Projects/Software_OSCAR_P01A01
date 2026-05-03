@@ -203,6 +203,8 @@ SECTIONS
     KEEP(*(.QFLASH_FlasherStorage))
     
     KEEP(*(.QFLASH_TabSaveBlock))
+ 
+    KEEP(*(.QFLASH_LoaderInfo))
 
     KEEP(*(.QFLASH_Section))
     
