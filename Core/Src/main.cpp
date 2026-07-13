@@ -23,12 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-// =====** DAD **=================================================================
-
-#include "HardwareAndCo.h"  // Hardware Definitions
-
-// ===** END DAD **===============================================================
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -78,7 +72,11 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_RNG_Init(void);
 /* USER CODE BEGIN PFP */
+// =====** DAD **=================================================================
 
+extern void HardwareAndCoInitialize();
+
+// ===** END DAD **===============================================================
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -145,7 +143,6 @@ SCB->VTOR = 0x24000000;
 // =====** DAD **=================================================================
 
   HardwareAndCoInitialize();
-  MainLoop();
 
 // ===** END DAD **===============================================================
 
@@ -667,10 +664,10 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
   HAL_GPIO_Init(TFT_Reset_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Encoder2_B_Pin Encoder2_A_Pin Encoder2_SW_Pin FootSwitch2A_Pin
-                           FootSwitch1B_Pin FootSwitch1A_Pin */
-  GPIO_InitStruct.Pin = Encoder2_B_Pin|Encoder2_A_Pin|Encoder2_SW_Pin|FootSwitch2A_Pin
-                          |FootSwitch1B_Pin|FootSwitch1A_Pin;
+  /*Configure GPIO pins : Encoder2_B_Pin Encoder2_A_Pin Encoder2_SW_Pin FootSwitch2_Pin
+                           FootSwitch1B_Pin FootSwitch1_Pin */
+  GPIO_InitStruct.Pin = Encoder2_B_Pin|Encoder2_A_Pin|Encoder2_SW_Pin|FootSwitch2_Pin
+                          |FootSwitch1B_Pin|FootSwitch1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);

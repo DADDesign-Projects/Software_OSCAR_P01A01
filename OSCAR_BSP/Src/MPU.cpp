@@ -5,16 +5,16 @@
 //------------------------------|--------|---------|----------------------------|--------------|------|-----------|----------
 // 0x00000000 - 0xFFFFFFFF      | 0      | 4GB     | Global Protection          | No Access    | No   | No        | No
 // 0x00000000 - 0x0000FFFF      | 1      | 64KB    | ITCM RAM                   | Full Access  | Yes  | Yes       | No
-// 0x08000000 - 0x081FFFFF      | 2      | 2M      | Flash                      | RO           | Yes  | Yes       | Yes
+// 0x08000000 - 0x0801FFFF      | 2      | 2MB     | Flash                      | RO           | Yes  | Yes       | Yes
 // 0x20000000 - 0x2001FFFF      | 3      | 128KB   | DTCM RAM                   | Full Access  | Yes  | Yes       | No
 // 0x24000000 - 0x2403FFFF      | 4      | 256KB   | RAM D1 - Part 1            | Full Access  | Yes  | Yes       | Yes
 // 0x24040000 - 0x2405FFFF      | 5      | 128KB   | RAM D1 - Part 2            | Full Access  | Yes  | Yes       | Yes
 // 0x24060000 - 0x2406FFFF      | 6      | 64KB    | RAM D1 - Part 3            | Full Access  | Yes  | Yes       | Yes
 // 0x24070000 - 0x2407FFFF      | 7      | 64KB    | RAM D1 - Non Cacheable     | Full Access  | Yes  | Yes       | No
 // 0x30000000 - 0x3003FFFF      | 8      | 256KB   | RAM D2 - SDRAM 1 & 2       | Full Access  | Yes  | Yes       | Yes
-// 0x30040000 - 0x30037FFF      | 8      | 32KB    | RAM D2 - SDRAM 1 & 2       | Full Access  | Yes  | Yes       | Yes
+// 0x30040000 - 0x30037FFF      | 9      | 32KB    | RAM D2 - SDRAM 1 & 2       | Full Access  | Yes  | Yes       | Yes
 // 0x38000000 - 0x3800FFFF      | 10     | 64KB    | RAM D3                     | Full Access  | Yes  | Yes       | Yes
-// 0x90000000 - 0x91FFFFFF      | 11     | 32MB    | QSPI FLASH (RO, Non-Exec)  | RO           | Yes  | Yes       | Yes
+// 0x90000000 - 0x907FFFFF      | 11     | 8MB     | QSPI FLASH (RO, Non-Exec)  | RO           | Yes  | Yes       | Yes
 // 0xC0000000 - 0xC3FFFFFF      | 12     | 64MB    | SDRAM                      | Full Access  | Yes  | Yes       | Yes
 //===========================================================================================================================
 #include "main.h"
