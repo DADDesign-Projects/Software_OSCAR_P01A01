@@ -55,11 +55,13 @@ the OSCAR software stack is built upon the **DAD_FORGE** framework
 FORGE provides all the abstraction layers, modules, and real‑time audio
 structures needed for embedded digital audio systems.
 
+**Documentation and tutorials** for framfork FORGE available here: (https://daddesign-projects.github.io/OSCAR_Documentation/)
+
 ### Drivers/
 CubeMX‑generated hardware drivers.\
 ➡️ **No modifications** done here.
 
-### HardwareAndCo/
+### OSCAR_BSP/
 All hardware-specific configuration and **FORGE module instantiation**
 required for OSCAR_P01A01.
 
