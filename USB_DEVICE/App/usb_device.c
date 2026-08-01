@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -27,10 +27,16 @@
 #include "usbd_cdc_if.h"
 
 /* USER CODE BEGIN Includes */
+
+// =====** DAD **=================================================================
+
 #include "Options.h"
 #ifdef USB_MIDI
 extern void MX_USB_MIDI_DEVICE_Init(void);
 #endif
+
+// ===** END DAD **===============================================================
+
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
@@ -67,10 +73,16 @@ USBD_HandleTypeDef hUsbDeviceFS;
 void MX_USB_DEVICE_Init(void)
 {
   /* USER CODE BEGIN USB_DEVICE_Init_PreTreatment */
-  #ifdef USB_MIDI
-  MX_USB_MIDI_DEVICE_Init();
-  return;
-  #endif
+
+	// =====** DAD **=================================================================
+
+	#ifdef USB_MIDI
+	MX_USB_MIDI_DEVICE_Init();
+	return;
+	#endif
+
+	// ===** END DAD **===============================================================
+
   /* USER CODE END USB_DEVICE_Init_PreTreatment */
 
   /* Init Device Library, add supported class and start the library. */

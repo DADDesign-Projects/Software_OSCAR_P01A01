@@ -11,8 +11,8 @@
 // Select the desired options below. Only ONE value per option must be set.
 // ==========================================================================
 
-#define USB_DEVICE      DEVICE_MIDI
-// #define USB_DEVICE   DEVICE_COM
+//#define USB_DEVICE      DEVICE_MIDI
+#define USB_DEVICE   DEVICE_COM
 
 #define MONITORING      MON_YES
 //#define MONITORING   MON_NO

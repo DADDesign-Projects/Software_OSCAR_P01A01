@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -72,11 +72,13 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_RNG_Init(void);
 /* USER CODE BEGIN PFP */
-// =====** DAD **=================================================================
 
-extern void HardwareAndCoInitialize();
+	// =====** DAD **=================================================================
 
-// ===** END DAD **===============================================================
+	extern void HardwareAndCoInitialize();
+
+	// ===** END DAD **===============================================================
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -92,14 +94,14 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-// =====** DAD **=================================================================
+	// =====** DAD **=================================================================
 
-#ifdef USE_RAM
-SCB->VTOR = 0x24000000;
-#endif
+	#ifdef USE_RAM
+	SCB->VTOR = 0x24000000;
+	#endif
 
+	// ===** END DAD **===============================================================
 
-// ===** END DAD **===============================================================
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -108,11 +110,16 @@ SCB->VTOR = 0x24000000;
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  // *** LA LIGNE MAGIQUE ***
-  // Modifie le registre FPSCR (Floating Point Status and Control Register)
-  // Bit 24 (FZ) : Flush-to-zero mode enable
-  // Bit 25 (DN) : Default NaN mode enable
-  __set_FPSCR(__get_FPSCR() | (1<<24) | (1<<25));
+
+	// =====** DAD **=================================================================
+
+	// *** LA LIGNE MAGIQUE ***
+	// Modifie le registre FPSCR (Floating Point Status and Control Register)
+	// Bit 24 (FZ) : Flush-to-zero mode enable
+	// Bit 25 (DN) : Default NaN mode enable
+	__set_FPSCR(__get_FPSCR() | (1<<24) | (1<<25));
+
+	// ===** END DAD **===============================================================
 
   /* USER CODE END Init */
 
@@ -140,11 +147,11 @@ SCB->VTOR = 0x24000000;
   MX_RNG_Init();
   /* USER CODE BEGIN 2 */
 
-// =====** DAD **=================================================================
+	// =====** DAD **=================================================================
 
-  HardwareAndCoInitialize();
+	HardwareAndCoInitialize();
 
-// ===** END DAD **===============================================================
+	// ===** END DAD **===============================================================
 
   /* USER CODE END 2 */
 

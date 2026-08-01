@@ -53,7 +53,7 @@ defined in linker script */
 .word __sTEXT
 .word __eTEXT
 .word __lTEXT
-/* End DAD ==========================================================*/
+/* End DAD ======================================================*/
 
 /**
  * @brief  This is the code that gets called when the processor first
@@ -146,8 +146,10 @@ LoopFillZerobss:
 /* Call static constructors */
     bl __libc_init_array
 /* Call the application's entry point.*/
-  bl  main
-  bx  lr
+    bl  main
+LoopForever:
+    b LoopForever
+
 .size  Reset_Handler, .-Reset_Handler
 
 /**
